@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import SDWebImage
 
 class PokemonListViewController: UIViewController, UITableViewDataSource {
 
@@ -68,14 +69,14 @@ class PokemonListViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath)
-        
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "PokemonCell")
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath)
         
         let pokemon = pokemons[indexPath.row]
         cell.textLabel?.text = pokemon.name
+        let imageIndex = indexPath.row + 1
+        let imageURL = URL(string: "\(Constants.PokemonAPI.SpriteURL)/\(imageIndex).png")
+        cell.imageView?.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "question_mark"))
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }

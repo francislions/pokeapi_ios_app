@@ -21,6 +21,8 @@
 		137B8D28289EA969003DF952 /* Pokemons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137B8D27289EA969003DF952 /* Pokemons.swift */; };
 		137B8D2A289EAA24003DF952 /* PokemonListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137B8D29289EAA24003DF952 /* PokemonListItem.swift */; };
 		137B8D30289EB2A6003DF952 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 137B8D2F289EB2A6003DF952 /* RxSwift */; };
+		137B8D32289EC1A9003DF952 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137B8D31289EC1A9003DF952 /* Constants.swift */; };
+		137B8D35289EC5DD003DF952 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 137B8D34289EC5DD003DF952 /* SDWebImage */; };
 		138D735F289D73BB00135E14 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D735E289D73BB00135E14 /* AppCoordinator.swift */; };
 		138D7362289D75E300135E14 /* PokemonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D7361289D75E300135E14 /* PokemonListViewController.swift */; };
 		138D7365289D761600135E14 /* PokemonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D7364289D761600135E14 /* PokemonListViewModel.swift */; };
@@ -61,6 +63,7 @@
 		137B8D25289EA902003DF952 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		137B8D27289EA969003DF952 /* Pokemons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemons.swift; sourceTree = "<group>"; };
 		137B8D29289EAA24003DF952 /* PokemonListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListItem.swift; sourceTree = "<group>"; };
+		137B8D31289EC1A9003DF952 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		138D735E289D73BB00135E14 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		138D7361289D75E300135E14 /* PokemonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewController.swift; sourceTree = "<group>"; };
 		138D7364289D761600135E14 /* PokemonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewModel.swift; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				137B8D35289EC5DD003DF952 /* SDWebImage in Frameworks */,
 				137B8D30289EB2A6003DF952 /* RxSwift in Frameworks */,
 				137B8D20289E96AD003DF952 /* Alamofire in Frameworks */,
 			);
@@ -127,6 +131,7 @@
 				13030AB4289D46830039BF3D /* Assets.xcassets */,
 				13030AB6289D46830039BF3D /* LaunchScreen.storyboard */,
 				13030AB9289D46830039BF3D /* Info.plist */,
+				137B8D31289EC1A9003DF952 /* Constants.swift */,
 			);
 			path = PokeApi;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 			packageProductDependencies = (
 				137B8D1F289E96AD003DF952 /* Alamofire */,
 				137B8D2F289EB2A6003DF952 /* RxSwift */,
+				137B8D34289EC5DD003DF952 /* SDWebImage */,
 			);
 			productName = PokeApi;
 			productReference = 13030AA8289D46820039BF3D /* PokeApi.app */;
@@ -295,6 +301,7 @@
 			packageReferences = (
 				137B8D1E289E96AD003DF952 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				137B8D2E289EB2A6003DF952 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				137B8D33289EC5DD003DF952 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 13030AA9289D46820039BF3D /* Products */;
 			projectDirPath = "";
@@ -349,6 +356,7 @@
 				137B8D28289EA969003DF952 /* Pokemons.swift in Sources */,
 				138D7365289D761600135E14 /* PokemonListViewModel.swift in Sources */,
 				13030AAE289D46820039BF3D /* SceneDelegate.swift in Sources */,
+				137B8D32289EC1A9003DF952 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,6 +708,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		137B8D33289EC5DD003DF952 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -712,6 +728,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 137B8D2E289EB2A6003DF952 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		137B8D34289EC5DD003DF952 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 137B8D33289EC5DD003DF952 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
