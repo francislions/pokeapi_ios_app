@@ -12,12 +12,14 @@ struct Pokemon: Decodable {
     var name: String
     var sprites: PokemonSprites
     var types: [PokemonSlotType]
+    var stats: [PokemonBaseStat]
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
         case sprites
         case types
+        case stats
     }
 }
 
@@ -26,6 +28,26 @@ struct PokemonSprites: Decodable {
     
     enum CodingKeys: String, CodingKey {
         case frontDefault = "front_default"
+    }
+}
+
+struct PokemonBaseStat: Codable {
+    var baseStat: Int
+    var effort: Int
+    var stat: PokemonStat
+    
+    enum CodingKeys: String, CodingKey {
+        case baseStat = "base_stat"
+        case effort
+        case stat
+    }
+}
+
+struct PokemonStat: Codable {
+    var name: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name
     }
 }
 

@@ -30,6 +30,7 @@ class PokemonDetailViewController: UIViewController {
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .fill
+        stackView.spacing = 4
         view.addSubview(stackView)
         
         stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -79,7 +80,17 @@ class PokemonDetailViewController: UIViewController {
     private func setupUIWith(pokemon: Pokemon) {
         title = pokemon.name
         pokemonPicture?.sd_setImage(with: URL(string: pokemon.sprites.frontDefault), placeholderImage: UIImage(named: "question_mark"))
-        typeLabel?.text = "Type: \(pokemon.types.first?.type.name ?? "")"
+        var types: [String] = []
+        pokemon.types.forEach { slotType in
+            types.append(slotType.type.name)
+        }
+        typeLabel?.text = "Type: \(types.joined(separator: ","))"
+        
+        for stat in pokemon.stats {
+            let label = UILabel()
+            label.text = "\(stat.stat.name): \(stat.baseStat)"
+            stackView?.addArrangedSubview(label)
+        }
     }
     
     /*
