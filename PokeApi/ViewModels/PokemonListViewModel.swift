@@ -10,11 +10,12 @@ import RxSwift
 
 final class PokemonListViewModel {
     private weak var coordinator: PokemonListCoordinator?
-    let pokeApi = PokeApi()
+    let pokeApi: PokeApi
     var pokemons: PublishSubject<[PokemonListItem]> = PublishSubject()
     
-    init(coordinator: PokemonListCoordinator) {
+    init(coordinator: PokemonListCoordinator, pokeApi: PokeApi = PokeApi()) {
         self.coordinator = coordinator
+        self.pokeApi = pokeApi
         self.pokemons.onNext([])
     }
     
@@ -24,5 +25,9 @@ final class PokemonListViewModel {
                 self.pokemons.onNext(pokemons.results)
             }
         }
+    }
+    
+    func showPokemonDetail(pokemonId: Int) {
+        coordinator?.showPokemonDetail(pokemonId: pokemonId)
     }
 }

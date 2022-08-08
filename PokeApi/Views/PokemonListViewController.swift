@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import SDWebImage
 
-class PokemonListViewController: UIViewController, UITableViewDataSource {
+class PokemonListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var viewModel: PokemonListViewModel!
     var tableView: UITableView?
@@ -26,6 +26,7 @@ class PokemonListViewController: UIViewController, UITableViewDataSource {
         let tableView = UITableView()
         self.tableView = tableView
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(tableView)
@@ -81,4 +82,10 @@ class PokemonListViewController: UIViewController, UITableViewDataSource {
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let pokemonId = indexPath.row + 1
+        viewModel.showPokemonDetail(pokemonId: pokemonId)
+    }
 }

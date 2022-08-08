@@ -30,6 +30,7 @@ final class AppCoordinator: Coordinator {
         
         let pokemonListCoorinator = PokemonListCoordinator(navigationController: navController)
         pokemonListCoorinator.parentCoordinator = self
+        childCoordinators.append(pokemonListCoorinator)
         pokemonListCoorinator.start()
         
         window.rootViewController = navController
