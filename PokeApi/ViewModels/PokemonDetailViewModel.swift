@@ -12,7 +12,7 @@ final class PokemonDetailViewModel {
     private weak var coordinator: PokemonDetailCoordinator?
     let pokemonId: Int
     let pokeApi: PokeApi
-    var pokemon: PublishSubject<[Pokemon]> = PublishSubject()
+    var pokemon: PublishSubject<Pokemon> = PublishSubject()
     
     init(coordinator: PokemonDetailCoordinator, pokemonId: Int, pokeApi: PokeApi = PokeApi()) {
         self.coordinator = coordinator
@@ -21,7 +21,12 @@ final class PokemonDetailViewModel {
     }
     
     func loadInitialData() {
-        
+        pokeApi.getPokemon(pokemonId) { pokemon in
+            if let pokemon = pokemon {
+                self.pokemon.onNext(pokemon)
+                print(pokemon)
+            }
+        }
     }
     
     func detailDidFinish() {

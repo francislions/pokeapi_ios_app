@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         guard #available(iOS 13.0, *) else {
             let window = UIWindow(frame: UIScreen.main.bounds)
+            window.backgroundColor = UIColor.white
             self.window = window
             self.appCoordinator = AppCoordinator(window: window)
             appCoordinator?.start()

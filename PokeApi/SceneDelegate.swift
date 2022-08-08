@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let uiScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: uiScene)
+        window.backgroundColor = UIColor.white
         self.window = window
         self.appCoordinator = AppCoordinator(window: window)
         appCoordinator?.start()

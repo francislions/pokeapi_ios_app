@@ -19,9 +19,13 @@ class PokeApi {
         }
     }
     
-    func getPokemon(_ id: String) {
-        AF.request("\(Constants.PokemonAPI.BaseURL)/pokemon/\(id)").response { response in
-            
+    func getPokemon(_ id: Int, completion: @escaping (Pokemon?) -> Void) {
+        AF.request("\(Constants.PokemonAPI.BaseURL)/pokemon/\(id)").responseDecodable(of: Pokemon.self) { response in
+            guard let pokemon = response.value else {
+                completion(nil)
+                return
+            }
+            completion(pokemon)
         }
     }
 }

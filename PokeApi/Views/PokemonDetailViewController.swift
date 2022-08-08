@@ -6,16 +6,57 @@
 //
 
 import UIKit
+import RxSwift
 
 class PokemonDetailViewController: UIViewController {
     
     var viewModel: PokemonDetailViewModel!
+    let disposeBag = DisposeBag()
+    var stackView: UIStackView?
+    var pokemonPicture: UIImageView?
+    var typeLabel: UILabel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.white
+        edgesForExtendedLayout = .bottom
+        
+        let stackView = UIStackView()
+        self.stackView = stackView
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        view.addSubview(stackView)
+        
+        stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        stackView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        stackView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        
+        let pokemonPicture = UIImageView()
+        self.pokemonPicture = pokemonPicture
+        pokemonPicture.translatesAutoresizingMaskIntoConstraints = false
+        
+        stackView.addArrangedSubview(pokemonPicture)
+        let aspectRatioConstraint = NSLayoutConstraint(item: pokemonPicture ,attribute: .height, relatedBy: .equal,toItem: pokemonPicture, attribute: .width, multiplier: 0.5,constant: 0)
+        aspectRatioConstraint.isActive = true
+        pokemonPicture.widthAnchor.constraint(equalTo: stackView.widthAnchor, constant: 0).isActive = true
+        pokemonPicture.addConstraint(aspectRatioConstraint)
+        pokemonPicture.contentMode = .scaleAspectFit
+        
+        let typeLabel = UILabel()
+        self.typeLabel = typeLabel
+        stackView.addArrangedSubview(typeLabel)
+        
+        viewModel.pokemon.subscribe { event in
+            if let element = event.element {
+                self.setupUIWith(pokemon: element)
+            }
+        }.disposed(by: disposeBag)
+        
+        viewModel.loadInitialData()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -23,6 +64,13 @@ class PokemonDetailViewController: UIViewController {
         
         viewModel.detailDidFinish()
     }
+    
+    private func setupUIWith(pokemon: Pokemon) {
+        title = pokemon.name
+        pokemonPicture?.sd_setImage(with: URL(string: pokemon.sprites.frontDefault), placeholderImage: UIImage(named: "question_mark"))
+        typeLabel?.text = "Type: \(pokemon.types.first?.type.name ?? "")"
+    }
+    
     /*
     // MARK: - Navigation
 
