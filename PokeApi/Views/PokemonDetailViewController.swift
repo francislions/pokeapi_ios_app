@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import MBProgressHUD
 
 class PokemonDetailViewController: UIViewController {
     
@@ -53,6 +54,16 @@ class PokemonDetailViewController: UIViewController {
         viewModel.pokemon.subscribe { event in
             if let element = event.element {
                 self.setupUIWith(pokemon: element)
+            }
+        }.disposed(by: disposeBag)
+        
+        viewModel.isLoading.subscribe { event in
+            if let isLoading = event.element {
+                if isLoading {
+                    MBProgressHUD.showAdded(to: self.view, animated: true)
+                } else {
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                }
             }
         }.disposed(by: disposeBag)
         

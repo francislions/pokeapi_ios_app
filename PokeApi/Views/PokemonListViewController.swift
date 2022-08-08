@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import SDWebImage
+import MBProgressHUD
 
 class PokemonListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -42,6 +43,16 @@ class PokemonListViewController: UIViewController, UITableViewDataSource, UITabl
             if let element = event.element {
                 self.pokemons = element
                 tableView.reloadData()
+            }
+        }.disposed(by: disposeBag)
+        
+        viewModel.isLoading.subscribe { event in
+            if let isLoading = event.element {
+                if isLoading {
+                    MBProgressHUD.showAdded(to: self.view, animated: true)
+                } else {
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                }
             }
         }.disposed(by: disposeBag)
         

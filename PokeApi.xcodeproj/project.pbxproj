@@ -18,6 +18,7 @@
 		1341018528A0F2EE0025258A /* PokemonDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1341018428A0F2EE0025258A /* PokemonDetailCoordinator.swift */; };
 		1341018728A0F3700025258A /* PokemonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1341018628A0F3700025258A /* PokemonDetailViewModel.swift */; };
 		1341018928A0F6900025258A /* PokemonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1341018828A0F6900025258A /* PokemonDetailViewController.swift */; };
+		1341018C28A13F560025258A /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 1341018B28A13F560025258A /* MBProgressHUD */; };
 		137B8D20289E96AD003DF952 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 137B8D1F289E96AD003DF952 /* Alamofire */; };
 		137B8D23289E9717003DF952 /* PokeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137B8D22289E9717003DF952 /* PokeApi.swift */; };
 		137B8D26289EA902003DF952 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137B8D25289EA902003DF952 /* Pokemon.swift */; };
@@ -83,6 +84,7 @@
 			files = (
 				137B8D35289EC5DD003DF952 /* SDWebImage in Frameworks */,
 				137B8D30289EB2A6003DF952 /* RxSwift in Frameworks */,
+				1341018C28A13F560025258A /* MBProgressHUD in Frameworks */,
 				137B8D20289E96AD003DF952 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +228,7 @@
 				137B8D1F289E96AD003DF952 /* Alamofire */,
 				137B8D2F289EB2A6003DF952 /* RxSwift */,
 				137B8D34289EC5DD003DF952 /* SDWebImage */,
+				1341018B28A13F560025258A /* MBProgressHUD */,
 			);
 			productName = PokeApi;
 			productReference = 13030AA8289D46820039BF3D /* PokeApi.app */;
@@ -303,6 +306,7 @@
 				137B8D1E289E96AD003DF952 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				137B8D2E289EB2A6003DF952 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				137B8D33289EC5DD003DF952 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				1341018A28A13F560025258A /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 			);
 			productRefGroup = 13030AA9289D46820039BF3D /* Products */;
 			projectDirPath = "";
@@ -696,6 +700,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1341018A28A13F560025258A /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jdg/MBProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		137B8D1E289E96AD003DF952 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -723,6 +735,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1341018B28A13F560025258A /* MBProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1341018A28A13F560025258A /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			productName = MBProgressHUD;
+		};
 		137B8D1F289E96AD003DF952 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 137B8D1E289E96AD003DF952 /* XCRemoteSwiftPackageReference "Alamofire" */;
