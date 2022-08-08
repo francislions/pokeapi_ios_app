@@ -10,7 +10,8 @@ import Alamofire
 
 class PokeApi {
     func pokemonList(offset: Int, limit: Int, completion: @escaping (Pokemons?) -> Void) {
-        AF.request("\(Constants.PokemonAPI.BaseURL)/pokemon").responseDecodable(of: Pokemons.self) { response in
+        let parameters = ["offset": offset, "limit": limit]
+        AF.request("\(Constants.PokemonAPI.BaseURL)/pokemon", parameters: parameters).responseDecodable(of: Pokemons.self) { response in
             guard let pokemons = response.value else {
                 completion(nil)
                 return

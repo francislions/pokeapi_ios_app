@@ -90,6 +90,10 @@ class PokemonListViewController: UIViewController, UITableViewDataSource, UITabl
         cell.imageView?.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "question_mark"))
         cell.accessoryType = .disclosureIndicator
         
+        if indexPath.row == pokemons.count - 1 { // Last row
+            viewModel.loadMoreData()
+        }
+        
         return cell
     }
 

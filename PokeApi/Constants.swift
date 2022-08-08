@@ -12,5 +12,6 @@ struct Constants {
     struct PokemonAPI {
         static let BaseURL = "https://pokeapi.co/api/v2"
         static let SpriteURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon"
+        static let PokemonListLimit: Int = 50
     }
 }
