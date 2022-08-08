@@ -66,6 +66,7 @@
 		1341018428A0F2EE0025258A /* PokemonDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailCoordinator.swift; sourceTree = "<group>"; };
 		1341018628A0F3700025258A /* PokemonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewModel.swift; sourceTree = "<group>"; };
 		1341018828A0F6900025258A /* PokemonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewController.swift; sourceTree = "<group>"; };
+		1341018D28A1723A0025258A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		137B8D22289E9717003DF952 /* PokeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeApi.swift; sourceTree = "<group>"; };
 		137B8D25289EA902003DF952 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		137B8D27289EA969003DF952 /* Pokemons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemons.swift; sourceTree = "<group>"; };
@@ -109,6 +110,7 @@
 		13030A9F289D46820039BF3D = {
 			isa = PBXGroup;
 			children = (
+				1341018D28A1723A0025258A /* README.md */,
 				13030AAA289D46820039BF3D /* PokeApi */,
 				13030AC1289D46840039BF3D /* PokeApiTests */,
 				13030ACB289D46840039BF3D /* PokeApiUITests */,
